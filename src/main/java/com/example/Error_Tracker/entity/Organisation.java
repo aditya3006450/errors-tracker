@@ -12,9 +12,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.PrePersist;
@@ -31,13 +28,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(
-  name = "organisation",
-  indexes = {
+@Table(name = "organisation", indexes = {
     @Index(name = "idx_org_slug", columnList = "slug", unique = true),
     @Index(name = "idx_org_created_at", columnList = "created_at")
-  }
-)
+})
 public class Organisation {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
